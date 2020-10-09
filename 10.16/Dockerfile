@@ -15,4 +15,5 @@ RUN apk update && \
     rm yarn-v$YARN_VERSION.tar.gz && \
     apk del .build-deps-yarn && \
     npm config set scripts-prepend-node-path auto && \
+    npm config set unsafe-perm true && \
     npm install --global gulp-cli
