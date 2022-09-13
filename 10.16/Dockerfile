@@ -5,15 +5,15 @@ WORKDIR /app
 
 ENV YARN_VERSION 1.22.4
 
-RUN apk update && \
-    apk add --no-cache git g++ make python && \
-    apk add --no-cache --virtual .build-deps-yarn curl && \
-    curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz" && \
-    tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/ && \
-    ln -snf /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn && \
-    ln -snf /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg && \
-    rm yarn-v$YARN_VERSION.tar.gz && \
-    apk del .build-deps-yarn && \
-    npm config set scripts-prepend-node-path auto && \
-    npm config set unsafe-perm true && \
-    npm install --global gulp-cli
+RUN apk update
+RUN apk add --no-cache git g++ make python
+RUN apk add --no-cache --virtual .build-deps-yarn curl
+RUN curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz" -v
+RUN tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/
+RUN ln -snf /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn
+RUN ln -snf /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg
+RUN rm yarn-v$YARN_VERSION.tar.gz
+RUN apk del .build-deps-yarn
+RUN npm config set scripts-prepend-node-path auto
+RUN npm config set unsafe-perm true
+RUN npm install --global gulp-cli
