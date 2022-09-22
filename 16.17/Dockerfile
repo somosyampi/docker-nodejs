@@ -1,11 +1,10 @@
-ARG NODE_VERSION=10.16
+ARG NODE_VERSION=16.17
 FROM node:$NODE_VERSION-slim
 
 WORKDIR /app
 
-ENV YARN_VERSION 1.22.4
+ENV YARN_VERSION 1.22.10
 
 RUN npm config set scripts-prepend-node-path auto && \
-npm config set unsafe-perm true && \
 yarn policies set-version $YARN_VERSION && \
 npm install --global gulp-cli
