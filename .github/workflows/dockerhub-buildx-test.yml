@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        image: ['10.16', '12.22', '14.13', '14.15', '16.17']
+        image: ['10.16', '12.22', '14.13', '14.15', '16.17', '18.14']
         platform: ['linux/amd64', 'linux/arm64']
     steps:
       -
