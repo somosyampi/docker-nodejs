@@ -1,5 +1,5 @@
 ARG NODE_VERSION=12.22
-FROM node:$NODE_VERSION-slim
+FROM node:$NODE_VERSION-stretch
 
 WORKDIR /app
 
