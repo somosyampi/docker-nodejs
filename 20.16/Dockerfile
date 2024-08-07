@@ -5,4 +5,5 @@ WORKDIR /app
 
 RUN apt update && \
     apt upgrade -y && \
-    apt clean
+    apt clean && \
+    npm install -g pnpm
