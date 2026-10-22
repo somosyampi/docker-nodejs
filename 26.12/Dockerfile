@@ -7,4 +7,4 @@ RUN apt update && \
     apt upgrade -y && \
     apt clean && \
     rm -rf /var/lib/apt/lists/* && \
-    npm install -g pnpm
+    npm install -g pnpm yarn
